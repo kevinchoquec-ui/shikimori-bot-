@@ -1,0 +1,13 @@
+{
+  "name": "shikimori-bot",
+  "version": "1.0.0",
+  "description": "Bot de WhatsApp Shikimori",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
