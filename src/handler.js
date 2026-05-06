@@ -6,6 +6,8 @@ async function handleMessage(sock, msg, commands) {
     const text = msg.message.conversation || msg.message.extendedTextMessage?.text
     if (!text) return
 
+    const sender = msg.key.participant || msg.key.remoteJid
+
     if (!text.startsWith(config.prefix)) return
 
     const args = text.slice(config.prefix.length).trim().split(/ +/)
@@ -15,7 +17,7 @@ async function handleMessage(sock, msg, commands) {
     if (!command) return
 
     try {
-        await command.execute(sock, msg, args)
+        await command.execute(sock, msg, args, sender)
     } catch (err) {
         console.log(err)
     }
