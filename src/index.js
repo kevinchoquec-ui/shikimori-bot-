@@ -12,6 +12,7 @@ async function startBot() {
 
     sock.ev.on("connection.update", ({ connection, qr }) => {
         if (qr) qrcode.generate(qr, { small: true })
+
         if (connection === "open") {
             console.log("✅ Shikimori conectado")
         }
@@ -25,7 +26,9 @@ async function startBot() {
         if (!text) return
 
         if (text === "!ping") {
-            await sock.sendMessage(msg.key.remoteJid, { text: "🏓 Pong Shikimori!" })
+            await sock.sendMessage(msg.key.remoteJid, {
+                text: "🏓 Pong Shikimori!"
+            })
         }
     })
 }
